@@ -1,0 +1,89 @@
+$def with(jsonob,output)
+<html>
+<head>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src= "./static/Chart.js-master/dist/Chart.js"></script>
+<script type="text/javascript" src= "./static/scripts/Linechart.js"></script>
+</head>
+<body>
+
+<div class="container">
+	<h2><u>Assignment</u></h2><br><br>
+
+	<ul class="nav nav-tabs">
+        <li class="active"><a href="#Search" data-toggle="tab">Search</a></li>
+        <li><a href="#Area_graph" data-toggle="tab">Show Chart</a></li>
+    </ul>
+
+    <div class="tab-content">
+
+    	<div class="tab-pane fade in active" id="Search">
+	    	<div class="row">
+	    		<br><br><br>
+	    		<div class="col-sm-4"></div>
+	    		<div class="col-sm-4">
+					
+						<div class="box">
+							<form method="POST" action="/">
+								<div class="row">
+									<div class="col-sm-6">
+										<label>OrderId : </label>
+									</div>
+									<div class="col-sm-6">
+										<input type="text" id="order_id" name="order_id" value=""><br><br><br><br>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<label>Seller Location :</label>
+									</div>
+									<div class="col-sm-6">
+											<input type="text" name="sellar_city" id="sellar_city" value=""><br><br>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<label>Buyer Location :</label>
+									</div>
+									<div class="col-sm-6">
+										<input type="text" name="buyer_city" id="buyer_city" value=""><br><br>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<label>Product Category:</label>
+									</div>
+									<div class="col-sm-6">
+											<input type="text" id="product_category" name="product_category" value=""><br><br><br>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-4"></div>
+									<div class="col-sm-4">
+									<input type="Submit" value="Search"><br><br><br>
+									</div>
+									<div class="col-sm-4"></div>
+								</div>
+							</form>
+						</div>
+						<label>$output</label>
+					
+				</div>
+				<div class="col-sm-4"></div>
+			</div>
+		</div>
+		
+		<div class="tab-pane fade " id="Area_graph">
+			<br><br><br>
+			<canvas id="myChart" ></canvas>
+			<script type="text/javascript">
+				window.onload=function(){makechart($:jsonob);}
+			</script>
+		</div>
+	</div>
+
+</div>
+</body>
+</html>

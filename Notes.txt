@@ -1,0 +1,51 @@
+##______________________________________--------- ABOUT ASSIGNMENT--------------___________________________________________##
+#############################################################################################################################
+
+
+Assignment is designed to perform Ingestion and Output result using the two APIs namely WebApp and APIOne. APIone performs ingestion using data.csv provided in same directory with it. 'data.csv' contains data that is to be ingested and used to show output. ApiOne is created in generalised manner and hence it could be used with any of similar type files like 'data.csv'. Reading the Csv files is embedded in ApiOne so no built in CSV library is used to create ApiOne.
+
+1 -###****ApiOne****
+
+ApiOne is developed in python Language. As Language of choice python provides ample of Object oriented approach, python is easy to understand, script and clean enough to code. Python makes its way as my language of choice because of its ease of writing expression , methods, classes and binding of objects. Its way of inheritance , usage of decorators sits well with me.
+
+ApiOne.py contains interaction with database and renders respective html for WebApi. It contains two classes namely static and ApiOne.ApiOne being the class that is used for render and database interaction.Static class provides path for static directories required in WebApi.
+
+i) Ingestion 
+		 
+		 - Psycopg2
+		   Psycopg2 is library implementation of connecting PostgreSql Database to python , a database adapter. I used psucopg2 because I wanted to make ApiOne a standalone Api that can insert values from csv files in a local domian. which means it must not require any kind of Web-client interaction and ingest it through local domian. Fuurther more Psycopg provides cursor as a connection feature(object) that could be used to execute any kind of postgres query directly. Using psycopg2 was great experience for me.
+
+		 - I have used File Handling in place of built im CSV methods.I parsed 'data.csv' using python conventional file handling methods to parse and ingest data in row by row and multiple row simultaneously.I have also build "Create_Table" function that extracts the first line of CSV file and use it to create a table with provided parameters.I have used comments in code for sense of clarity.
+
+ii) Output
+		
+		- Web.py
+		  Web.py is light-weight webframework for python.Its is most basic and minimal web farmework , basically a 'load and run' framework.I personally wanted to adapt to a newer webFramework besides python to ehance my learning. Web.py provides nearly all of conventional Webframework features and attributes like creating RESTful Apis , Using template render. It provides nearly all of feature through adding very small and basic lines of codes. Web.py is very easy to learn and adapt to , and starts server using a python script file. Though it has not established itself for debugging problem , It still is quiet efficient to use specially for render in localhost for testing and design phase.
+
+		- Output method is used to bundle up parameters in form of list or list of list and provides appropriate shipper name for provided parameters. Output method implements sql queries and returns a list of shipper names for provided input(s).Ouput method is then used by GET and POST method to render the respective data.
+
+		- count and countall method is used to provide data for the charts. They use sql queries to to extract data from database and then returns suitable list. countall is used by GET and POST method to response the data accordingly.
+
+
+
+2 -###****WebApp****
+
+WebApp is an html file that is to be rendered using ApiOne GET and POST method. WebApp utilizes the functions of html, css, javascript to provide a User oriented interface. WebApp uses bootstrap and requires its stylesheets and javascripts (provided as links) to create a User oriented environment.
+
+		- Chart.js
+		  Chart.js is Open Source Charting Library that is used to build up conventional chart designs through provisioned classes. Chart.js is straight-forward and easy to use. Development of Chart only requires a limited and few lines of code to build a Chart. I preferred Chart.js because I had clear mentality over what to build and it came under a conventional graph domain (line,bar,pie..etc). After tthe thinking through of graph implementing it in Chat.js was fairly easy for me. Chart.js uses canvas to build a chart over and basically just requires labels and data to build up.
+		  Provision of labels with easy building of graph temted me to use Chart.js. Although not much more can be done with Chart.js besides creation of Charts it is a fair library to be used for creating the traditional graphs.
+
+		- Choice of Chart 
+		  Building a chart for count(shipper_names) vs dates my clear choice was a Line/area Graph. Following are some of the reasons I chose a Line Graph :-
+
+		  1. Area Graph shows the quantity in pictorial fashion. An Area graph provides weight over quantity(in this case counts) that could be used to make easy deduction for Maximum and Minimum for set Period.
+
+		  2. Line Graph shows slope. This slope could be used to deduct the amount of certain quantity (in this case counts) being decreased or increased. This deduction could help in positive way as for clearing the approach to reach towards a certain goal. Slopes also shows amount of production done. Darkening the Background Area could imbalance the look of slope over quantity.To show the importance of slopes I have lightened the area of Graph and provided Grid lines to work with. 
+
+		  3. Also for same above reason of slope I have not used Beizer curve or a curved charts. I think counts could be used to show facts over the certain period of time. Straight lines are used to establish maximum and minimum in one glance. Since facts are to be shown with clarity , They should not be bent over.
+
+		  4. Over this short period of time a bar graph could also be used to show quantity and maximum (+ minimum). But Bar graph made for a longer period of dates could become messier and hard to comprehend that is why I didn't chose Bar Graph.
+
+
+I had fun build this Assignment and experienced some of new thongs with it too. I Look Forward for hearing from You.    
